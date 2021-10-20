@@ -8,7 +8,7 @@ initializeAuthentication();
 
 
 const Login = () => {
-    const { signInUsingGoogle } = useAuth();
+    const { signInUsingGoogle , handleRegistration } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
@@ -25,7 +25,7 @@ const Login = () => {
         <><Row className="justify-content-md-center my-4 mx-0">
             <Col xs="10" md="4" className="border border-4 border-primary rounded-3">
                 <h1 className="text-center text-primary m-3">Pleace Login</h1>
-                <Form className="p-3">
+                <Form className="p-3" onSubmit={handleRegistration}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />

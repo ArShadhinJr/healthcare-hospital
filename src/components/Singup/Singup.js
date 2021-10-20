@@ -2,13 +2,16 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Singup = () => {
+    const {handleRegistration} = useAuth();
+
     return (
         <><Row className="justify-content-md-center my-4 mx-0">
             <Col xs="10" md="4" className="border border-4 border-primary rounded-3">
                 <h1 className="text-center text-primary m-3">Create Account</h1>
-                <Form className="p-3">
+                <Form className="p-3" onSubmit={handleRegistration}>
                 <Form.Group className="mb-3" controlId="formBasicText">
                         <Form.Label>Your Full Name</Form.Label>
                         <Form.Control type="text" placeholder="Your full name" />

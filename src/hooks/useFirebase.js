@@ -10,6 +10,12 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
+
+    const handleRegistration = e => {
+        console.log("registration complete");
+        e.preventDefault()
+    }
+
     const signInUsingGoogle = () => {
         return signInWithPopup( auth, googleProvider )
             .finally( () => { setLoading( false ) } );
@@ -42,7 +48,8 @@ const useFirebase = () => {
         user,
         loading,
         signInUsingGoogle,
-        logOut
+        logOut, 
+        handleRegistration
     }
 }
 
