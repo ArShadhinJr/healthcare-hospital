@@ -28,14 +28,14 @@ const Header = () => {
                                 <NavLink to="/about" className="btn" activeClassName="btn-light">About</NavLink>
                             </Nav.Link>
                             <Nav.Link>
-                                <NavLink to="/services" className="btn" activeClassName="btn-light">Services</NavLink>
+                                <NavLink to="/services" className="btn" activeClassName="btn-light">Covid-19</NavLink>
                             </Nav.Link>
                             <Nav.Link>
                                 <NavLink to="/doctor/" className="btn" activeClassName="btn-light">Doctors</NavLink>
                             </Nav.Link>
 
                             <Nav.Link>
-                                {user.email && <span style={{ color: 'white' }}>Hello {user.displayName} </span>}
+                                {user.email  && <span style={{ color: 'white' }}>Hello {user.displayName} </span>}
                                 {user.email ? <Button onClick={logOut} className="btn btn-light">Log Out</Button> : <NavLink to="/login" className="btn" activeClassName="btn-light">Login</NavLink>}
                             </Nav.Link>
                             
