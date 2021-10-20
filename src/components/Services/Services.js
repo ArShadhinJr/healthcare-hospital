@@ -3,12 +3,12 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 
 const Services = () => {
     // use State to set services 
-    const [ services, setServices ] = useState( [] );
+    const [ covids, setCovids ] = useState( [] );
     //  Load Services data from services json file 
     useEffect( () => {
         fetch( 'https://arshadhinjr.github.io/jsonapi/covid.json' )
             .then( res => res.json() )
-            .then( data => setServices( data ) )
+            .then( data => setCovids( data ) )
     }, [] );
     return (
         <>
@@ -20,12 +20,12 @@ const Services = () => {
             <Row xs={1} md={3} className="g-4 m-5  p-5">
                 {/* map for show services  */}
                 {
-                    services.map( service => <Col>
+                    covids.map( covid => <Col>
                         <Card>
-                            <Card.Img variant="top" src={service.img} />
+                            <Card.Img variant="top" src={covid.img} />
                             <Card.Body>
-                                <Card.Title><h2 className="text-danger">{service.heading}</h2></Card.Title>
-                                <Card.Text className="text-justify ">{service.details}</Card.Text>
+                                <Card.Title><h2 className="text-danger">{covid.heading}</h2></Card.Title>
+                                <Card.Text className="text-justify ">{covid.details}</Card.Text>
                                 <p className="text-center"><Button variant="primary">Continue...</Button></p>
                             </Card.Body>
                         </Card>

@@ -1,6 +1,6 @@
 import Button from '@restart/ui/esm/Button';
 import { Col, Form, Row } from 'react-bootstrap';
-import { Link , useLocation, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import initializeAuthentication from '../../Firebase/firebase.init';
 import useAuth from '../../hooks/useAuth';
 
@@ -8,17 +8,22 @@ initializeAuthentication();
 
 
 const Login = () => {
-    const { signInUsingGoogle , handleLogIn, handleEmailChange, handlePasswordChange , error  } = useAuth();
+    // use auth 
+    const { signInUsingGoogle, handleLogIn, handleEmailChange, handlePasswordChange, error } = useAuth();
+
+    // use location and history 
     const location = useLocation();
     const history = useHistory();
+
+
     const redirect_uri = location.state?.from || '/home';
 
-
+    //. use handle google login system 
     const handleGoogleLogin = () => {
         signInUsingGoogle()
-            .then(result => {
-                history.push(redirect_uri);
-            })
+            .then( result => {
+                history.push( redirect_uri );
+            } )
     }
 
     return (
@@ -44,20 +49,20 @@ const Login = () => {
                     </Form.Group>
                     <div className="row mb-3 text-danger">{error}</div>
                     <div className="d-grid">
-                    <Button className="btn btn-primary" type="submit">
-                        Login
-                    </Button>
+                        <Button className="btn btn-primary" type="submit">
+                            Login
+                        </Button>
                     </div>
                 </Form>
 
                 <div className="my-3 text-center">
-                        or login with
-                    </div>
+                    or login with
+                </div>
                 <div className="d-grid mb-3">
                     <Button onClick={handleGoogleLogin} className="btn btn-outline-primary" type="submit">
                         Google
                     </Button>
-                    </div>
+                </div>
             </Col>
         </Row></>
     );
