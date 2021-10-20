@@ -1,9 +1,26 @@
 import Button from '@restart/ui/esm/Button';
-import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link , useLocation, useHistory } from 'react-router-dom';
+import initializeAuthentication from '../../Firebase/firebase.init';
+import useAuth from '../../hooks/useAuth';
+
+initializeAuthentication();
+
 
 const Login = () => {
+    const { signInUsingGoogle } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home';
+
+
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+            .then(result => {
+                history.push(redirect_uri);
+            })
+    }
+
     return (
         <><Row className="justify-content-md-center my-4 mx-0">
             <Col xs="10" md="4" className="border border-4 border-primary rounded-3">
@@ -30,15 +47,16 @@ const Login = () => {
                         Login
                     </Button>
                     </div>
-                    <div className="my-3 text-center">
+                    <div className="mt-3 text-center">
                         or login with
                     </div>
-                    <div className="d-grid">
-                    <Button className="btn btn-outline-primary" type="submit">
+                    
+                </Form>
+                <div className="d-grid mb-3">
+                    <Button onClick={handleGoogleLogin} className="btn btn-outline-primary" type="submit">
                         Google
                     </Button>
                     </div>
-                </Form>
             </Col>
         </Row></>
     );
