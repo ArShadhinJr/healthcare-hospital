@@ -33,7 +33,7 @@ const DoctorDetails = () => {
                 </Col>
                 <Col xm={12} md={6} className="p-5 text-center">
                     <h1>
-                        <Badge bg="primary" className="my-4 size">Dr. {nameClass}</Badge>
+                        <Badge bg="primary" className="my-4 size ">Dr. {nameClass}</Badge>
                     </h1>
                     <h1 className="text-primary text-bolder mb-4">{position}</h1>
                     <h2 className="text-bolder mb-4">Fee: $ {fee}</h2>
