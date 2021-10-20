@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Md. Jashim Uddin Choudhury", 
+        "img": "https://i.ibb.co/h7pP1M6/josim.jpg",
+        "phone": "01816645308",
+        "position" : "Head Teacher"
+    },
+    {
+        "id": 2,
+        "name": "Abdur Rahman", 
+        "img": "https://i.ibb.co/0mVvk9Q/abdurrahman.jpg",
+        "phone": "01818180123",
+        "position" : "Assistant Teacher"
+    },
+    {
+        "id": 3,
+        "name": "Md. Forhad Hossen", 
+        "img": "https://i.ibb.co/LJwTpgK/forhadchy.jpg",
+        "phone": "01816645308",
+        "position" : "Assistant Teacher"
+    },
+    {
+        "id": 4,
+        "name": "Mizanur Rahman", 
+        "img": "https://i.ibb.co/GshQKPS/mizanr.jpg",
+        "phone": "01816645308",
+        "position" : "Assistant Teacher"
+    },
+    {
+        "id": 5,
+        "name": "Syoda Roshonara Akter", 
+        "img": "https://i.ibb.co/Gvd2FTS/slucky.jpg",
+        "phone": "01816645308",
+        "position" : "Assistant Teacher"
+    },
+    {
+        "id": 6,
+        "name": "Ronodon Rodro", 
+        "img": "https://i.ibb.co/0ZjrJGt/ronodon.jpg",
+        "phone": "01816645308",
+        "position" : "Assistant Teacher"
+    }
+]
