@@ -1,10 +1,18 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
+
 
 const DoctorList = ( props ) => {
     // destructuring for admition 
     const { nameClass, img, fee, position, id } = props.doctor;
+    const history = useHistory();
+    const handleToDetails = () => {
+        // setCart([]);
+        // clearTheCart();
+        history.push();
+    }
     return (
         <>
             <Col>

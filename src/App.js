@@ -8,10 +8,10 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Services from './components/Services/Services';
 import Singup from './components/Singup/Singup';
 import AuthProvider from './context/AuthProvider';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -24,18 +24,12 @@ function App() {
           <Route exact path="/home">
             <Home></Home>
           </Route>
-          {/* <Route exact path="/about">
-          <About></About>
-        </Route> */}
-          <PrivateRoute exact path="/services">
+          <Route exact path="/services">
             <Services></Services>
-          </PrivateRoute>
-          <Route exact path="/doctor/:doctorId">
-            <DoctorDetails></DoctorDetails>
           </Route>
-          {/* <Route exact path="/teachers">
-          <Teachers></Teachers>
-        </Route> */}
+          <PrivateRoute exact path="/doctor/:doctorId">
+            <DoctorDetails></DoctorDetails>
+          </PrivateRoute>
           <Route exact path="/">
             <Home></Home>
           </Route>
@@ -43,7 +37,7 @@ function App() {
             <About></About>
           </Route>
           <Route exact path="/doctor/">
-            <Login></Login>
+            <DoctorDetails></DoctorDetails>
           </Route>
           <Route exact path="/login">
             <Login></Login>

@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Badge, ButtonGroup, Col, Container, Image, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import "./DoctorDetails.css";
 
 const DoctorDetails = () => {
+    const { user } = useAuth();
     const { doctorId } = useParams();
     const [ doctor, setDoctor ] = useState( [] );
-    const { id, img, nameClass, fee, details, totalSeet, position } = doctor;
+    const {  img, nameClass, fee, totalSeet, position } = doctor;
     useEffect( () => {
         fetch( `https://arshadhinjr.github.io/jsonapi/data${doctorId}.json` )
             .then( res => res.json() )
@@ -17,15 +19,15 @@ const DoctorDetails = () => {
 
     return (
 
-        <Container>
+        <><Container>
             <Col xm={12}>
                 <div className="fw-bolder text-center p-5 m-5">
                     <h1 className="fs-1 text-primary">OUR DOCTORS DETAIL</h1>
                     <p>HEALTHCARE HOSPITAL  / APPOINTMENT LETTER</p>
                 </div>
             </Col>
+            {user.email ? 
             <Row className="mb-5">
-
                 <Col xm={12} md={6}>
                     <Image src={img} border="primary" rounded fluid />
                 </Col>
@@ -42,8 +44,12 @@ const DoctorDetails = () => {
                         <Button className="btn btn-danger">Cencel</Button>
                     </ButtonGroup>
                 </Col>
-            </Row>
-        </Container>
+            </Row> :
+                <div >
+                    <h2 className="text-primary text-center">Please <Link to="/login">Login</Link> or <Link to="/singup">Sing Up</Link></h2>
+                </div>
+            }
+        </Container></>
     );
 };
 
